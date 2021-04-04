@@ -1,0 +1,43 @@
+1. Create a model called User following the ERD above
+2. Create and run the migration files to create the User table in your database
+python manage.py makemigrations
+python manage.py migrate
+
+3. Create a .txt file where you'll save each of the queries you'll run in the shell
+4. Run the shell and import your User model
+from main.models import User
+
+5. Query: Create 3 new users
+User.objects.create(first_name= "Max", last_name="Gliedt", email = "m@g.com", age = 3)
+User.objects.create(first_name= "Cassidy", last_name="Gliedt", email = "c@g.com", age = 1)
+User.objects.create(first_name= "Micah", last_name="Gliedt", email = "micah@g.com", age = 40)
+
+6. Query: Retrieve all the users
+max = User.objects.get(id=1)
+max.save()
+cassidy = User.objects.get(id=2)
+cassidy.save()
+micah = User.objects.get(id=3)
+micah.save()
+User.objects.all()
+
+8. Query: Retrieve the first user
+User.objects.first()
+
+7. Query: Retrieve the last user
+User.objects.last()
+
+9. Query: Change the user with id=3 so their last name is Pancakes.
+micah.last_name = "Pancakes"
+micah.save()
+
+10. Query: Delete the user with id=2 from the database
+cassidy.delete()
+
+11. Query: Get all the users, sorted by their first name
+User.objects.all().order_by("first_name")
+
+12.  BONUS Query: Get all the users, sorted by their first name in descending order
+User.objects.all().order_by("-first_name")
+
+13. Submit your .txt file that contains all the queries you ran in the shell

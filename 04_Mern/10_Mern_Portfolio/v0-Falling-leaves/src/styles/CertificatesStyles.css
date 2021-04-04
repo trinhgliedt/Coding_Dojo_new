@@ -1,0 +1,49 @@
+  .certContainer {
+    width: 100%;
+    min-height: 900px;
+    background: radial-gradient(rgba(114, 116, 68, 0.575), rgba(61, 54, 54, 0.678));
+    border-radius: 50px;
+  }
+  #image1 {
+    perspective: 3000px;
+    width: 80%;
+    position: absolute;
+    left: 12%;
+    top: 4%;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+  }
+
+  #image2 {
+    perspective: 3000px;
+    width: 80%;
+    position: absolute;
+    left: 12%;
+    top: 15%;
+    margin-top: 50px;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+  }
+
+  #image1, #image2 {
+    transform: rotateX(70deg) rotateZ(-60deg) translate3d(-120px, 0px, 70px);
+    box-shadow: -80px 60px 15px 5px rgba(0,0,0,0.4);
+    transition: all .4s;
+    transform-style: preserve-3d;
+  }
+  #image1:hover {
+    transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+    top: 6%;
+  }
+
+  #image2:hover {
+    transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+    top: 0%;
+  }
+  
+
+  #image1:hover ~ #image2 {
+    display: none;
+  }

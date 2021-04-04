@@ -1,0 +1,194 @@
+<html>
+    <head>
+        <title>NinjaMan-OnScript</title>
+        <style type="text/css">
+          * {
+            margin: 0;
+            padding: 0;
+          }
+          .wall {
+            background-color: lightblue;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+          }
+          .blank {
+            background-color: yellow;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+          }
+          .sushi {
+            background-color: yellow;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url('ninjaman/sushi.png');
+            background-size: contain;
+           }
+            
+          .onigiri {
+            background-color: yellow;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url('ninjaman/onigiri.png');
+            background-size: contain;
+
+          }
+          #ninja {
+            background-color: yellow;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url('ninjaman/ninja.gif');
+            background-size: contain;
+            position: absolute;
+            left: 80px;
+            top: 40px;
+          }
+
+        </style>
+    </head>
+    <body>  
+      <div id='world'></div>
+      <div id='ninja'></div>
+
+    </body>
+
+    <script type="text/javascript">
+        var worldDict = {
+          0:'blank', 
+          1:'wall', 
+          2:'sushi',
+          3:'onigiri'
+        };
+//To generate an random array with number of rows/columns between 12 and 22. 
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+var world=[], originalWorld=[];
+var nRow = getRndInteger(12,22), nColumn = getRndInteger(12,22);
+document.write('nColumn: ',nColumn,', nRow: ',nRow,"<br>");
+
+for (var i=0; i < nRow; i++){
+	world[i] = [];
+	//originalWorld[i] = [];
+	for (var j=0; j<nColumn; j++){
+		world[i].push(Math.floor(Math.random() * 4));
+		//originalWorld[i].push(Math.floor(Math.random() * 4));
+	}
+}
+originalWorld = world;
+
+//To set value of the first and last row of array to 1 (wall)
+for (var k=0; k<world[0].length; k++){
+	world[0][k] = 1; originalWorld[0][k] = 1;
+	world[world.length-1][k] = 1; originalWorld[originalWorld.length-1][k] = 1;
+}
+
+//To set value of the first and last column of array to 1 (wall)
+for (var m=0; m<world.length; m++){
+	world[m][0] = 1; originalWorld[m][0] = 1;	
+	world[m][world[0].length - 1] = 1; originalWorld[m][originalWorld[0].length - 1] = 1;	
+}
+console.log('world: ', world);
+console.log('originalWorld: ', originalWorld);
+
+//To set world = blank where the ninjaman stands
+world[1][2]=0; originalWorld[1][2]=0;
+
+//List out the size of the world
+console.log('originalWorld size: ',originalWorld[0].length,' columns, ', originalWorld.length, ' rows')
+
+//Count number of Sushi and Onigiri before Ninjaman eats any
+
+var totalOnigiri = 0, totalSushi = 0;
+for (var n=0; n<originalWorld.length; n++){
+	for (var p=0; p < originalWorld[0].length; p++){
+		if (originalWorld[n][p]==3){
+			totalOnigiri = totalOnigiri + 1;
+		}
+		if (originalWorld[n][p]==2){
+			totalSushi = totalSushi + 1;
+		}
+	}
+}
+console.log('totalOnigiri: ',totalOnigiri, ', totalSushi: ',totalSushi);
+
+
+        function drawWorld(){
+          output = "";
+          for (var row = 0; row < world.length; row++){
+            output += "<div class = 'row'>";
+            for (var x = 0; x < world[row].length; x++){
+              output += "<div class = '" + worldDict[world[row][x]] +"'></div>";        
+            }
+            output += "</div>";       
+          }
+          document.getElementById('world').innerHTML = output;
+        }
+        drawWorld()
+    var ninja = {x: 2, y: 1}
+
+    function drawNinja(){
+      document.getElementById('ninja').style.left = ninja.x*40 +"px";
+      document.getElementById('ninja').style.top = ninja.y*40 + "px";
+    }
+    drawNinja()
+    document.onkeydown = function(e){
+      console.log('e: ',e);
+        console.log('e.keyCode: ',e.keyCode);
+        console.log('ninja coordinate: ', ninja.y, ninja.x);
+
+      if (e.keyCode == 37) { //Left
+        if ((world[ninja.y][ninja.x - 1] != 1)){
+          ninja.x--;
+          document.getElementById("ninja").style.transform= "rotateY(180deg)";
+        }     
+      }
+      else if (e.keyCode == 39) { //right
+        if ((world[ninja.y][ninja.x + 1] != 1)){
+          ninja.x++;
+          document.getElementById("ninja").style.transform = "rotate(0deg)";
+        }
+      }
+      else if (e.keyCode == 40) { //down
+          if ((world[ninja.y + 1][ninja.x] != 1)){
+            ninja.y++;
+            document.getElementById("ninja").style.transform = "rotate(90deg)";
+        }
+      }
+      else if (e.keyCode == 38) { //up
+         if ((world[ninja.y - 1][ninja.x] != 1)){
+            ninja.y--;
+            document.getElementById("ninja").style.transform = "rotate(-90deg)";
+          }
+      }
+
+      world[ninja.y][ninja.x] = 0;
+
+      drawWorld();
+      drawNinja();
+
+  
+  var remainingSushi = 0; remainingOnigiri = 0;
+      for (var row = 0; row < world.length; row++){
+          for (var x = 0; x < world[0].length; x++){
+            //if (originalWorld[row][x] == 2) {totalSushi = totalSushi + 1;}
+            //if (originalWorld[row][x] == 3) {totalOnigiri = totalOnigiri + 1;}
+            if (world[row][x] == 2) {remainingSushi = remainingSushi + 1;}
+            if (world[row][x] == 3) {remainingOnigiri = remainingOnigiri + 1;}
+          }     
+      }
+   console.log('Number of sushi eaten: ', totalSushi - remainingSushi);
+   console.log('Number of onigiri eaten: ', totalOnigiri - remainingOnigiri);
+
+    }
+
+    </script>
+   </html>
+
+
+

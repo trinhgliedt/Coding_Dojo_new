@@ -1,0 +1,323 @@
+Microsoft Windows [Version 10.0.18363.959]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\chuot>pip list
+Package    Version
+---------- -------
+pip        20.2
+setuptools 47.1.0
+
+C:\Users\chuot>pip3 list
+Package    Version
+---------- -------
+pip        20.2
+setuptools 47.1.0
+
+C:\Users\chuot>cd C:\Trinh\Coding_Dojo\2.1_Python\My_Environments
+
+C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>python -m venv py3Env
+
+C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>call py3Env\Scripts\activate
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip list
+Fatal error in launcher: Unable to create process using '"c:\trinh\coding dojo\2.1 python\my_environments\py3env\scripts\python.exe"  "C:\Trinh\Coding_Dojo\2.1_Python\My_Environments\py3Env\Scripts\pip.exe" list': The system cannot find the file specified.
+
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip uninstall {{package}}
+Fatal error in launcher: Unable to create process using '"c:\trinh\coding dojo\2.1 python\my_environments\py3env\scripts\python.exe"  "C:\Trinh\Coding_Dojo\2.1_Python\My_Environments\py3Env\Scripts\pip.exe" uninstall {{package}}   ': The system cannot find the file specified.
+
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>deactivate
+C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip list
+Package    Version
+---------- -------
+pip        20.2
+setuptools 47.1.0
+
+C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>call py3Env\Scripts\activate
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip3 list
+Fatal error in launcher: Unable to create process using '"c:\trinh\coding dojo\2.1 python\my_environments\py3env\scripts\python.exe"  "C:\Trinh\Coding_Dojo\2.1_Python\My_Environments\py3Env\Scripts\pip3.exe" list': The system cannot find the file specified.
+
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip install {{package}}
+Fatal error in launcher: Unable to create process using '"c:\trinh\coding dojo\2.1 python\my_environments\py3env\scripts\python.exe"  "C:\Trinh\Coding_Dojo\2.1_Python\My_Environments\py3Env\Scripts\pip.exe" install {{package}}  ': The system cannot find the file specified.
+
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip install {{package}}
+ERROR: Invalid requirement: '{{package}}'
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip install django
+Collecting django
+  Downloading Django-3.0.8-py3-none-any.whl (7.5 MB)
+     |████████████████████████████████| 7.5 MB 1.3 MB/s
+Collecting pytz
+  Downloading pytz-2020.1-py2.py3-none-any.whl (510 kB)
+     |████████████████████████████████| 510 kB ...
+Collecting asgiref~=3.2
+  Downloading asgiref-3.2.10-py3-none-any.whl (19 kB)
+Collecting sqlparse>=0.2.2
+  Downloading sqlparse-0.3.1-py2.py3-none-any.whl (40 kB)
+     |████████████████████████████████| 40 kB ...
+Installing collected packages: pytz, asgiref, sqlparse, django
+Successfully installed asgiref-3.2.10 django-3.0.8 pytz-2020.1 sqlparse-0.3.1
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>python -m venv py3Env
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip list
+Package    Version
+---------- -------
+pip        20.1.1
+setuptools 47.1.0
+WARNING: You are using pip version 20.1.1; however, version 20.2 is available.
+You should consider upgrading via the 'c:\trinh\coding_dojo\2.1_python\my_environments\py3env\scripts\python.exe -m pip install --upgrade pip' command.
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>c:\trinh\coding_dojo\2.1_python\my_environments\py3env\scripts\python.exe -m pip install --upgrade pip
+Collecting pip
+  Using cached pip-20.2-py2.py3-none-any.whl (1.5 MB)
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 20.1.1
+    Uninstalling pip-20.1.1:
+      Successfully uninstalled pip-20.1.1
+Successfully installed pip-20.2
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip list
+Package    Version
+---------- -------
+pip        20.2
+setuptools 47.1.0
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>deactivate
+C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip list
+Package    Version
+---------- -------
+asgiref    3.2.10
+Django     3.0.8
+pip        20.2
+pytz       2020.1
+setuptools 47.1.0
+sqlparse   0.3.1
+
+C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip3 list
+Package    Version
+---------- -------
+asgiref    3.2.10
+Django     3.0.8
+pip        20.2
+pytz       2020.1
+setuptools 47.1.0
+sqlparse   0.3.1
+
+C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>call my_Environments/py3Env/Scripts/activate
+'my_Environments' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>call My_Environments/py3Env/Scripts/activate
+'My_Environments' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>call /py3Env/Scripts/activate
+The system cannot find the path specified.
+
+C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>call C:\Trinh\Coding_Dojo\2.1_Python\My_Environments/py3Env/Scripts/activate
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip install Django==2.2.4
+Collecting Django==2.2.4
+  Downloading Django-2.2.4-py3-none-any.whl (7.5 MB)
+     |████████████████████████████████| 7.5 MB 6.4 MB/s
+Collecting pytz
+  Using cached pytz-2020.1-py2.py3-none-any.whl (510 kB)
+Collecting sqlparse
+  Using cached sqlparse-0.3.1-py2.py3-none-any.whl (40 kB)
+Installing collected packages: pytz, sqlparse, Django
+Successfully installed Django-2.2.4 pytz-2020.1 sqlparse-0.3.1
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip freeze
+Django==2.2.4
+pytz==2020.1
+sqlparse==0.3.1
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip install Django==3.0.8
+Collecting Django==3.0.8
+  Using cached Django-3.0.8-py3-none-any.whl (7.5 MB)
+Requirement already satisfied: sqlparse>=0.2.2 in c:\trinh\coding_dojo\2.1_python\my_environments\py3env\lib\site-packages (from Django==3.0.8) (0.3.1)
+Collecting asgiref~=3.2
+  Using cached asgiref-3.2.10-py3-none-any.whl (19 kB)
+Requirement already satisfied: pytz in c:\trinh\coding_dojo\2.1_python\my_environments\py3env\lib\site-packages (from Django==3.0.8) (2020.1)
+Installing collected packages: asgiref, Django
+  Attempting uninstall: Django
+    Found existing installation: Django 2.2.4
+    Uninstalling Django-2.2.4:
+      Successfully uninstalled Django-2.2.4
+Successfully installed Django-3.0.8 asgiref-3.2.10
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>pip freeze
+asgiref==3.2.10
+Django==3.0.8
+pytz==2020.1
+sqlparse==0.3.1
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>cd Desktop
+The system cannot find the path specified.
+
+(py3Env) C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>deactivate
+C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>cd Desktop
+The system cannot find the path specified.
+
+C:\Trinh\Coding_Dojo\2.1_Python\My_Environments>cd ..
+
+C:\Trinh\Coding_Dojo\2.1_Python>cd .. ..
+
+C:\Trinh\Coding_Dojo\2.1_Python>cd ..
+
+C:\Trinh\Coding_Dojo>cd ..
+
+C:\Trinh>cd ..
+
+C:\>cd users
+
+C:\Users>cd chuot
+
+C:\Users\chuot>cd Desktop
+
+C:\Users\chuot\Desktop>pip freeze > requirements.txt
+
+C:\Users\chuot\Desktop>dir
+ Volume in drive C is OS
+ Volume Serial Number is 16BB-AEFF
+
+ Directory of C:\Users\chuot\Desktop
+
+08/01/2020  11:51 PM    <DIR>          .
+08/01/2020  11:51 PM    <DIR>          ..
+07/20/2020  01:02 PM             2,357 GitHub Desktop.lnk
+07/15/2020  08:32 PM             1,766 Google Drive.lnk
+08/01/2020  10:17 PM             1,500 Python 3.8 (32-bit).lnk
+08/01/2020  11:51 PM                63 requirements.txt
+08/01/2020  10:51 PM    <DIR>          temp
+07/22/2020  12:54 PM             1,933 Zoom.lnk
+               5 File(s)          7,619 bytes
+               3 Dir(s)  446,414,233,600 bytes free
+
+C:\Users\chuot\Desktop>requirements.txt
+
+C:\Users\chuot\Desktop>pip uninstall Django
+Found existing installation: Django 3.0.8
+Uninstalling Django-3.0.8:
+  Would remove:
+    c:\users\chuot\appdata\local\programs\python\python38-32\lib\site-packages\django-3.0.8.dist-info\*
+    c:\users\chuot\appdata\local\programs\python\python38-32\lib\site-packages\django\*
+    c:\users\chuot\appdata\local\programs\python\python38-32\scripts\django-admin.exe
+    c:\users\chuot\appdata\local\programs\python\python38-32\scripts\django-admin.py
+Proceed (y/n)? y
+  Successfully uninstalled Django-3.0.8
+
+C:\Users\chuot\Desktop>pip show Django
+WARNING: Package(s) not found: Django
+
+C:\Users\chuot\Desktop>pip search Flask
+Flask-SimpleMDE (0.3.0)      - Flask-SimpleMDE - a Flask extension for SimpleMDE
+Flask-Pure (0.5)             - Flask-Pure - a Flask extension for Pure.css
+Flask-OrientDB (0.1)         - A Flask extension for using OrientDB with Flask
+Flask-ElasticUtils (0.1.7)   - ElasticUtils for Flask
+Flask-Waitress (0.0.1)       - Flask Waitress
+flask-zs (0.0.25)            - A helpers for Flask.
+sockjs-flask (0.3)           - SockJs for Flask
+Flask-Stripe (0.1.0)         - Flask-Stripe
+Flask-Quik (0.1.1)           - Quik for Flask
+Flask-BDEA (0.1.0)           - Flask-BDEA
+Flask-Helper (1.2.1)         - Flask Helper
+Flask-PubSub (0.1.0)         - Flask-PubSub
+flask-helloworld (1.0.0)     - Flask Helloworld
+flask-live (0.0.1)           - Flask Live
+Flask-GripControl (0.0.1)    - Flask GripControl
+Flask-TinyMce (0.1.6)        - flask tinymce
+flask-ws (0.0.1.0)           - Websocket for flask.
+Flask-MDE (1.2.0)            - Pagedown for Flask
+Flask-SPF (0.0.0)            - Flask-SPF
+Flask-Watson (0.1.0)         - Flask-Watson
+Flask-FileRev (0.1.0)        - Flask-FileRev
+Flask-Shopify (0.2)          - Shopify Flask
+Flask-Weixin (0.5.0)         - Weixin for Flask.
+flask-abort (0.0.1)          - flask abort
+flask-ypaginate (0.1.3)      - Pagination for Flask
+Flask-OAuthlib (0.9.5)       - OAuthlib for Flask
+Flask-SRI (0.1.0)            - Flask-SRI
+Flask-Intercom (0.1.0)       - Flask-Intercom
+flask-toolbox (0.0.2)        - A flask toolbox.
+Flask-Turbolinks (0.2.0)     - Turbolinks for Flask.
+Flask-Ext (0.1)              - Extensions of Flask
+Flask-TaskTiger (0.0.1)      - Flask TaskTiger
+Flask-Mustache (0.4.1)       - Mustache for Flask
+Flask-AutoIndex (0.6.6)      - The mod_autoindex for Flask
+Flask-Clearbit (0.1.0)       - Flask-Clearbit
+Flask-FontAwesome (0.1.5)    - FontAwesome for Flask
+Fifty-Flask (1.4.0)          - Flask enhancements.
+Flask-Chargebee (0.0.1)      - Flask-Chargebee
+Flask-Keen (0.1.0)           - Flask-Keen
+Flask-NextCaller (0.1.0)     - Flask-NextCaller
+Flask-Gears (0.2)            - Gears for Flask
+flask-mico (0.2.2)           - flask mico
+airbrake-flask (1.0.7)       - airbrake-flask - Airbrake client for Python Flask
+flask-serializer (0.0.4)     - A Flask serializer built with marshmallow and flask-sqlalchemy
+Flask-GeoIP (0.1.3)          - Flask-GeoIP -------------  Simple Flask extension for pygeoip.
+Flask-hCaptcha (0.5.1)       - A hCaptcha extension for Flask based on flask-recaptcha
+Flask-Diced (0.3)            - Flask-Diced - CRUD views generator for Flask
+Flask-LoginManager (1.1.6)   - Flask-Loginmanager supports multiple roles and permissions for Flask, inspired by
+                               Flask-Login
+Flask-RESTive (0.0.3)        - Flask RESTive is a REST API Flask extension based on Flask-RESTful & Marshmallow.
+Flask-FlatPagesCut (0.5.1)   - Flask-FlatPagesCut is fork Flask-FlatPages (Provides flat static pages to a Flask
+                               application)
+flask-lesscss (0.9.1)        - A small Flask extension that adds LessCSS support to Flask.
+flask-shell (0.1.3)          - Flask extension to improve shell command for the Flask CLI.
+flask-stylus2css (0.1)       - A small Flask extension that adds Stylus support to Flask.
+flask-coffee2js (0.1.2)      - A small Flask extension that adds CoffeScript support to Flask.
+Flask-Collect (1.3.2)        - Flask-Collect -- Collect static files in Flask application
+flask-filters (0.3)          - The Flask Filter to use with flask-restful and Relational DB
+Flask-Shelve (0.1.1)         - Shelve support for Flask
+Flask-Edits (0.8)            - Editable Content in Flask
+Flask-Funnel (0.1.10)        - Asset management for Flask.
+Flask-Breve (0.2)            - Breve templating with Flask
+Flask-mongobit (0.3.0)       - MongoBit support in Flask
+flask-logsocketio (0.1.4)    - Flask LogSocketIo module
+Flask-Passlib (0.1)          - Flask extension for passlib
+flask-serial (1.1.0)         - Flask extension for the Serial
+flask-discoverer (0.1.4)     - Flask API autodiscovery
+flask-snow (0.2.8)           - Pysnow extension for Flask
+Flask-Autodoc (0.1.2)        - Documentation generator for flask
+Flask-wechatpy (0.1.3)       - wechatpy for flask extension
+Flask-Vises (2.1.4)          - A Flask scaffold library
+Flask-PyFCM (0.1.1)          - Flask extension for PyFCM
+Flask-sshtunnel (0.1b2)      - sshtunnel extension for flask
+flask-mdict (1.1.5)          - Flask Mdict Server
+Flask-MDEditor (0.1.3)       - MDEditor integration for Flask
+flask-kombu (0.1.0)          - Flask and Kombu integration.
+Flask-CAS (1.0.2)            - Flask extension for CAS
+Flask-Testing (0.8.0)        - Unit testing for Flask
+Flask-Sixpack (0.0.1)        - Flask wrapper for Sixpack
+Flask-Avatar (0.1.3)         - To generate avatar for flask
+Flask-wangEditor (0.0.3.2)   - wangEditor integration for Flask.
+flask-now (0.2.2)            - Flask App Generator
+flask-adh (0.1)              - flask admin antd
+Flask-Config (0.2.1)         - Flask configuration class
+flask-symphony (0.0.1.dev0)  - flask Admin Symphony
+Flask-Airbrake (0.0.3)       - Flask extension for Airbrake
+flask-handlers (0.0.1)       - Handlers for Flask applications
+Flask-OpenID (1.2.5)         - OpenID support for Flask
+Flask-CKEditor (0.4.4.1)     - CKEditor integration for Flask.
+Flask-Triangle (0.5.4)       - Integration of AngularJS and Flask.
+Flask-Zero (0.9.6)           - Qiniu Storage for Flask
+Flask-CuttlePool (0.2.1)     - A Flask extension for CuttlePool
+Flask-SaeStorage (0.9.0)     - SAE Storage for Flask
+Flask-Navigation (0.2.0)     - The navigation of Flask application.
+Flask-Slack (0.1.5)          - Slack extension for Flask.
+Flask-Triangle3 (0.5.3)      - Integration of AngularJS and Flask.
+Flask-ZMQ (0.1.2)            - Flask extension for ZMQ
+flask-fast (0.0.1.dev0)      - Flask-fast. It's fast.
+Flask-Enterprise (1.0)       - Enterprise capabilities for Flask
+Flask-SAML (0.4.3)           - Flask SAML integration
+Flask-Flarf (0.0.5)          - Flask request filtering
+flask-tat (0.0.10)           - Flask TAT client
+
+C:\Users\chuot\Desktop>

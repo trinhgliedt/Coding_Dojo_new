@@ -1,0 +1,26 @@
+* {
+    /* outline: 1px solid grey; */
+}
+#container {
+    width: 600px;
+    /* display: flex; */
+}
+.note_box {
+    border: 1px solid black;
+    display: inline-flex;
+    /* display: inline-block; */
+    width: 150px;
+    height: 120px;
+    padding: 5px;
+    margin: 10px 10px;
+}
+button {
+    box-shadow: 3px 3px black;
+}
+form {
+    margin-top: 25px;
+    width: 30%;
+}
+button, textarea {
+    margin-top: 15px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session Intro</title>
+  <style>
+    body {
+      /* directly outputting the fav_color value from session */
+      background: {{ request.session.fav_color }};
+    }
+  </style>
+</head>
+<body>
+  <h1>Session Intro</h1>
+
+  <p>Your favorite color is: {{ request.session.fav_color }}</p>
+
+  <!-- action indicates where the next request will be sent -->
+  <!-- POST means we are trying to make a change on the server -->
+  <form action="/process-form" method="POST">
+    <!-- Cross Site Request Forgery token -->
+    <!-- creates a "hidden" input with a hash -->
+    <!-- to ensure that the request originated from our site -->
+    <label>What is your favorite color?</label>
+    <!-- name is used by the server -->
+    <select name="color">
+      {% for color in colors %}
+        <!-- value is used by the server -->
+        <option value="{{ color }}">{{ color }}</option>
+      {% endfor %}
+    </select>
+    {% csrf_token %}
+    
+    <button>Submit</button>
+  </form>
+
+  <p>These are your previous selections:</p>
+  <ul>
+    {% for color in request.session.history %}
+      <li>{{ color }}</li>
+    {% endfor %}
+  </ul>
+
+  <form action="/reset" method="POST">
+    {% csrf_token %}
+    <button>Reset</button>
+  </form>
+</body>
+</html>

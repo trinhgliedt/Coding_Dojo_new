@@ -1,0 +1,130 @@
+* {
+    /* outline: 1px solid grey; */
+}
+
+.projectHeader {
+    background: radial-gradient(rgba(118, 119, 82, 0.698), #4e4848fa);
+    font-size: 1.1em;
+    border-radius: 1em;
+    padding: 0.5em 0;
+}
+
+.projectCard {
+    background: radial-gradient(rgba(175, 177, 105, 0.726), rgba(78, 72, 72, 0.883));
+    box-shadow: 2em 2em 2em 2em rgba(0,0,0,0.4);
+    z-index: 2;
+    border-radius: 2.5em;
+    
+}
+
+.card-body {
+    display: none;
+}
+
+#projectWrap{
+    min-height: 2000px;
+}
+.project {
+    width: 50%;
+    position: absolute;
+}
+#project1 {
+    left: 0%;
+    top: 9%;
+    z-index: 5;
+} 
+
+#project2 {
+    left: 12%;
+    top: 9%;
+    z-index: 4;
+} 
+
+#project3 {
+    left: 24%;
+    top: 9%;
+    z-index: 3;
+} 
+#project4 {
+    left: 36%;
+    top: 9%;
+    z-index: 2;
+} 
+
+#project1:hover, #project2:hover, #project3:hover, #project4:hover {
+    z-index: 5;
+    left: 8.5%;
+    width: 100%;
+    transform: translateY(-10em);
+    transition: all .4s ease-in-out;
+    background: radial-gradient(rgb(175, 177, 105), rgb(78, 72, 72));
+}
+#project1:hover~ .card-body, #project2:hover~ .card-body, #project3:hover~ .card-body, #project4:hover ~ .card-body {
+    display:block;
+}
+#project3:hover ~ #project1 {
+    display: none;
+}
+
+#project3:hover ~ #project2 {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .projectHeader {
+        font-size: 0.6em;
+        border-radius: 0.2em;
+        padding: 0.2em 0;
+    }
+    #projectWrap{
+        padding: 0.2em;
+    }
+    .project {
+        width: 80%;
+    }
+    .projectCard {
+        box-shadow: 1em rgba(0,0,0,0.4);
+        border-radius: 1em;
+    }
+    #project1:hover, #project2:hover, #project3:hover, #project4:hover {
+        left: 0%;
+        transform: translateY(-3em);
+    }
+    #project1:hover~ .card-body, #project2:hover~ .card-body, #project3:hover~ .card-body, #project4:hover ~ .card-body {
+        display:block;
+    }
+
+    #project1 {
+        left: 0%;
+        top: 3%;
+        z-index: 5;
+    } 
+    
+    #project2 {
+        left: 3%;
+        top: 3%;
+        z-index: 4;
+    } 
+    
+    #project3 {
+        left: 6%;
+        top: 3%;
+        z-index: 3;
+    } 
+    #project4 {
+        left: 9%;
+        top: 3%;
+        z-index: 2;
+    } 
+    .card-body {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 900px) {
+    .projectHeader {
+        font-size: 0.9em;
+        border-radius: 0.5em;
+        padding: 0.5em 0;
+    }
+}

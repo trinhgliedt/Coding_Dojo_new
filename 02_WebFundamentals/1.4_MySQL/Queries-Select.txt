@@ -1,0 +1,241 @@
+Twitter
+http://learn.codingdojo.com/m/2/5514/35627
+
+1
+What query would you run to get all of the users?
+SELECT * 
+FROM users;
+
+2
+What query would you run to only get the first names of all of the users?
+SELECT first_name 
+FROM users;
+
+3
+What query would you run to only get the first and last names of all of the users?
+SELECT first_name, last_name
+FROM users;
+
+SELECT w/ Conditionals
+
+4
+What query would you run to only get the first name of users with id of 2?
+SELECT first_name
+FROM users
+WHERE id = 2;
+
+5
+What query would you run to get the last names of users with id of 2 or 3?
+SELECT last_name
+FROM users
+WHERE id = 2 OR id = 3;
+
+6
+What query would you run to get all of the users with id greater than 2?
+SELECT *
+FROM users
+WHERE id > 2;
+
+7
+What query would you run to get all of the users with id less than or equal to 3?
+SELECT *
+FROM users
+WHERE id <= 3;
+
+8
+What query would you run to get all of the users with first names ending in "e"?
+SELECT * 
+FROM users
+WHERE first_name LIKE "%e";
+
+9
+What query would you run to get all of the users with first names starting in "K"?
+SELECT * 
+FROM users
+WHERE first_name LIKE "K%";
+
+
+SELECT w/ Sorting
+
+10
+What query would you run to get all of the users with the youngest users at the top of the table?
+SELECT *
+FROM users
+ORDER BY birthday DESC;
+
+11
+What query would you run to get all of the users with the oldest users at the top of the table?
+SELECT *
+FROM users
+ORDER BY birthday ASC;
+
+12
+What query would you run to get all of the users with the first name that ends with "e" with the youngest users at the top of the table?
+SELECT *
+FROM users
+WHERE first_name LIKE "%e"
+ORDER BY birthday DESC;
+
+13
+What query would you run to get only the first names of all of the users in alphabetical order?
+SELECT first_name
+FROM users
+ORDER BY first_name;
+The default for ORDER BY is ASC so we can leave that part out if we want the sorting to be ascending.
+
+SELECT w/ LIMIT and OFFSET
+
+14
+What query would you run to get the first 3 users?
+SELECT *
+FROM users
+LIMIT 3;
+
+15
+What query would you run to get user records 3-5?
+SELECT *
+FROM users
+LIMIT 3
+OFFSET 2;
+
+16
+You could also combine LIMIT and OFFSET like this:
+SELECT *
+FROM users
+LIMIT 2,3;
+
+World
+
+https://sqlzoo.net/wiki/SELECT_basics
+
+18
+The example uses a WHERE clause to show the population of 'France'. Note that strings (pieces of text that are data) should be in 'single quotes';
+Modify it to show the population of Germany
+SELECT population FROM world
+  WHERE name = 'Germany'
+
+19
+Checking a list The word IN allows us to check if an item is in a list. The example shows the name and population for the countries 'Brazil', 'Russia', 'India' and 'China'.
+Show the name and the population for 'Sweden', 'Norway' and 'Denmark'.
+SELECT name, population FROM world
+  WHERE name IN ('Sweden', 'Norway', 'Denmark');
+
+20
+Which countries are not too small and not too big? BETWEEN allows range checking (range specified is inclusive of boundary values). The example below shows countries with an area of 250,000-300,000 sq. km. Modify it to show the country and the area for countries with an area between 200,000 and 250,000.
+SELECT name, area FROM world
+  WHERE area BETWEEN 200000 AND 250000
+
+https://sqlzoo.net/wiki/SELECT_names
+
+21
+Luxembourg has an x - so does one other country. List them both.
+Find the countries that contain the letter x
+SELECT name FROM world
+  WHERE name LIKE '%x%'
+
+22
+Iceland, Switzerland end with land - but are there others?
+
+Find the countries that end with land
+SELECT name FROM world
+  WHERE name LIKE '%land'
+
+23
+Columbia starts with a C and ends with ia - there are two more like this.
+
+Find the countries that start with C and end with ia
+SELECT name FROM world
+  WHERE name LIKE 'C%ia'
+
+24
+Greece has a double e - who has a double o?
+
+Find the country that has oo in the name
+SELECT name FROM world
+  WHERE name LIKE '%oo%'
+
+25
+Bahamas has three a - who else?
+
+Find the countries that have three or more a in the name
+SELECT name FROM world
+  WHERE name LIKE '%a%a%a%'
+
+26
+India and Angola have an n as the second character. You can use the underscore as a single character wildcard.
+Find the countries that have "t" as the second character.
+SELECT name FROM world
+ WHERE name LIKE '_t%'
+ORDER BY name
+
+27
+Lesotho and Moldova both have two o characters separated by two other characters.
+
+Find the countries that have two "o" characters separated by two others.
+SELECT name FROM world
+ WHERE name LIKE '%o__o%'
+
+28
+Cuba and Togo have four characters names.
+
+Find the countries that have exactly four characters.
+SELECT name FROM world
+ WHERE name LIKE '____'
+
+29
+The capital of Luxembourg is Luxembourg. Show all the countries where the capital is the same as the name of the country
+
+Find the country where the name is the capital city.
+SELECT name
+  FROM world
+ WHERE name LIKE capital
+
+30
+The capital of Mexico is Mexico City. Show all the countries where the capital has the country together with the word "City".
+
+Find the country where the capital is the country plus "City".
+
+The concat function
+SELECT name
+  FROM world
+ WHERE capital LIKE concat(name, ' City')
+
+31
+Find the capital and the name where the capital includes the name of the country.
+SELECT capital, name
+FROM world
+WHERE capital LIKE concat('%', name, '%')
+
+32
+Find the capital and the name where the capital is an extension of name of the country.
+
+You should include Mexico City as it is longer than Mexico. You should not include Luxembourg as the capital is the same as the country.
+SELECT capital, name
+FROM world
+WHERE capital LIKE concat('%', name, '%')
+and length(capital) > length(name);
+
+33
+For Monaco-Ville the name is Monaco and the extension is -Ville.
+
+Show the name and the extension where the capital is an extension of name of the country.
+
+You can use the SQL function REPLACE.
+select name, replace(capital, name, '')
+from world
+WHERE capital LIKE concat('%', name, '%')
+and length(capital) > length(name);
+
+
+https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial
+
+34
+Exclusive OR (XOR). Show the countries that are big by area (more than 3 million) or big by population (more than 250 million) but not both. Show name, population and area.
+
+Australia has a big area but a small population, it should be included.
+Indonesia has a big population but a small area, it should be included.
+China has a big population and big area, it should be excluded.
+United Kingdom has a small population and a small area, it should be excluded.
+select name, population, area
+from world
+where area > 3000000 xor population > 250000000;

@@ -1,0 +1,35 @@
+*{
+    
+    justify-content: space-between;
+    align-items: center;
+    
+}
+#container{
+    display: flex;
+
+    background-color:#6495ed ;
+    width: 800px;
+    /* height: 35px; */
+    padding: 20px;
+
+}
+h1{
+    font-size: x-large;
+}
+
+
+img{
+    width: 50px;
+    height: 50px;
+}
+
+.font{
+    font-family:Montserrat;
+    color: white;
+    display: inline;   
+    
+}
+
+#header{
+    /* margin-right: 50px; */
+}

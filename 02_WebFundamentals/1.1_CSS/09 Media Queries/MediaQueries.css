@@ -1,0 +1,29 @@
+@media only screen and (max-width: 480px){
+    /* we will set these stylings only if the device is a screen with a width of 480px or less */
+    .navbtn {
+        background-color: yellow;
+    }
+}
+@media only screen and (min-width: 481px){
+    /* we will set these stylings only if the device is a screen with a width of 480px or less */
+    .navbtn {
+        background-color: blue
+    }
+}
+@media only screen and (min-width: 1024px){
+    .navbtn {
+        background-color: red
+    }
+
+}
+/* @media only screen and (min-width: 480px){
+    /* we will set these stylings only if the device is a screen with a width of 480px or less */
+    /* .navbtn { */
+        /* background-color: red; */
+    /* } */
+/* } */ 
+button{
+    margin: 5px;
+    width: 260px;
+    height: 100px;
+}

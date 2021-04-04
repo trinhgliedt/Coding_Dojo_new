@@ -1,0 +1,62 @@
+<html>
+    <body>
+        <div id='background'>
+            <div id="background" style="position:absolute; width: 600px; height: 400px; background-image: url('img/white_bg.jpg');">
+            	<div id="character" style="position:absolute; width: 59px; height: 86px; background-image: url('img/down1.png'); position: absolute; left: 100px; top: 100px;"></div>
+        </div>
+        <script type="text/javascript">
+        	var walkValue = 1;
+            var leftValue = 100, topValue = 100;
+            var direction = 'down';
+            
+            function update(){
+            	if (walkValue == 1) {
+            		walkValue = 2;
+            	}
+            	else {
+            		walkValue = 1;
+            	}
+            	document.getElementById("character").style.left = leftValue+"px";
+            	document.getElementById("character").style.top = topValue+"px";
+                document.getElementById("character").style.backgroundImage = "url('img/"+direction+walkValue+".png')";
+            }
+
+            document.onkeydown = function(e) {
+            	
+                console.log('e: ', e); 
+                console.log('e.keyCode: ', e.keyCode);
+              
+               	if (e.keyCode == 37 && leftValue > 0) { // LEFT
+                   	leftValue = leftValue - 20;
+                   	direction = 'left';
+                }
+                else if (e.keyCode == 39) { // RIGHT
+                   	direction = 'right';
+                   	leftValue = leftValue + 20;
+                     	if (leftValue > window.innerWidth-70) {
+                   			leftValue = window.innerWidth-70;
+                   		}
+               	}
+                
+                else if (e.keyCode == 40) { // DOWN
+                   	topValue = topValue + 20;
+                   	direction = 'down';
+                   	if (topValue > (window.innerHeight-100)) {
+                   		topValue = window.innerHeight-100;
+                   	}
+               		
+                }
+                else if (e.keyCode == 38) { // up
+                   	direction = 'top';
+                   	topValue = topValue - 20;
+                   	if (topValue < -20) {
+                   		topValue = -20;
+               			}        
+                	}
+                
+                // ...
+             update(); 
+            }
+        </script>
+    </body>
+</html>

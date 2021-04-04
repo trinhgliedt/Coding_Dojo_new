@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    {% load static %}
+    <link rel='stylesheet' href='{% static 'notestyle.css' %}'>
+</head>
+<body>
+    <div id="container">
+        <h1>My Posts</h1>
+        {% for note in all_notes %}
+            <div class="note_box">{{ note.notes }}</div>
+        {% endfor %}
+        <form action="/note/update" method="POST">
+            {% csrf_token %}
+            <label for="notes">Add a note:</label>
+            <textarea name="notes" cols="30" rows="5"></textarea>
+            <button>Post it!</button>
+
+        </form>
+
+    </div>
+</body>
+</html>

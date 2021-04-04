@@ -1,0 +1,21 @@
+* {
+    /* outline: 1px solid grey; */
+    color: white;
+}
+
+body, .bgGradient {
+    background: radial-gradient(rgb(173, 175, 120), rgb(31, 28, 28)); 
+  }
+
+#aboutMe, h2 {
+    position: relative;
+    z-index: 2;
+}
+
+#aboutMe {
+    margin-top: 10px;
+    height: auto;
+    border-radius: 30px;
+    padding: 40px;
+    background: radial-gradient(rgba(114, 116, 68, 0.575), rgba(61, 54, 54, 0.678));
+}

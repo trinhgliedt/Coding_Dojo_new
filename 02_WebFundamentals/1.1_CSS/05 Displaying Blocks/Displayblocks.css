@@ -1,0 +1,33 @@
+#container{
+    background-color: #d5d2ae;
+    width: 770px;
+    padding: 20px;
+    justify-content: center;
+}
+
+
+img{
+    margin: 0px;
+    width: 125px ;
+    
+    
+}
+
+.odd-column{
+    border: 10px solid #82b4ee;
+    
+}
+
+.even-column{
+    background-color:#f36870;
+    border: 10px solid #f36870;
+    
+}
+.cell{
+    border: 2px solid black;
+    display: inline-block;
+    height: 145px;
+    width: 145px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

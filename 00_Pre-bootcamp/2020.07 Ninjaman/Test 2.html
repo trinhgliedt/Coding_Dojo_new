@@ -1,0 +1,19 @@
+
+<script>
+
+var row = 4; // Main array length
+var column= 5; // Number of columns
+var array = [];
+
+for ( var i = 0; i < row; i++ )
+{
+    array[i] = []; // Create subArray
+
+    for( var j = 1; j <= column; j++ )
+    {
+        array[i].push(j);
+    }
+}
+document.write(array,"<br>");
+document.write('array[0][1]: ',array[0][1],"<br>");
+</script>

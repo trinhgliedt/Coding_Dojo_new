@@ -1,0 +1,61 @@
+  .certContainer {
+    width: 100%;
+    min-height: 900px;
+    background: radial-gradient(rgba(114, 116, 68, 0.575), rgba(61, 54, 54, 0.678));
+    border-radius: 50px;
+  }
+  .certImg {
+    width: 80%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+
+    /* transform: rotateX(70deg) rotateZ(-60deg) translate3d(-120px, 0px, 70px); */
+    transform: rotateX(70deg) rotateZ(-60deg) translate3d(-1em, 0px, 10em);
+    /* box-shadow: -80px 60px 15px 5px rgba(0,0,0,0.4); */
+    box-shadow: -5em 8em 4em 1em rgba(0,0,0,0.4);
+    transition: all .4s;
+    transform-style: preserve-3d;
+  }
+  .certImg:hover {
+    transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+  }
+  
+  #awsCert {
+    top: 0%;
+    left: 12%;
+    margin-top: 80px;
+  }
+  
+  #dojoCert {
+    top: 16%;
+    left: 12%;
+    margin-top: 50px;
+  }
+  
+    #cpaCert {
+      top: 40%;
+      left: 12%;
+    }
+  
+
+  #awsCert:hover {
+    top: 0%;
+  }
+
+  #dojoCert:hover {
+    top: 6%;
+  }
+  
+  #cpaCert:hover {
+    top: 6%;
+  }
+
+
+  #cpaCert:hover ~ #dojoCert, #cpaCert:hover ~ #awsCert{
+    display: none;
+  }
+  #dojoCert:hover ~ #awsCert, #dojoCert:hover ~ #cpaCert{
+    display: none;
+  }

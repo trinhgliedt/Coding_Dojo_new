@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <form action="/result/" method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td><label for="your_name">Your name:</label></td>
+                    <td><input type="text" id = "name" name = "name"></td>
+                </tr>
+                <tr>
+                    <td><label for="dojo_location">Dojo Location:</label></td>
+                    <td>
+                        <select name="dojo_location">
+                            <option value="San Jose">San Jose</option>
+                            <option value="Seattle">Seattle</option>
+                            <option value="Dallas">Dallas</option>
+                            <option value="Chicago">Chicago</option>
+                            <option value="Tulsa">Tulsa</option>
+                            <option value="DC">DC</option>
+                            <option value="Burbank">Burbank</option>
+                        </select> 
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="fav_language">Favorite Language:</label></td>
+                    <td>
+                        <select name="fav-language">
+                            <option value="Python">Python</option>
+                            <option value="Javascript">Javascript</option>
+                            <option value="Java">Java</option>
+                            <option value="C#">C#</option>
+                            <option value="PHP">PHP</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <label for="comment">Comment (optional):</label>
+            <input type="text" id = "comment" name = "comment">
+            <button>Button</button>
+        </form>
+    </div>
+</body>
+</html>

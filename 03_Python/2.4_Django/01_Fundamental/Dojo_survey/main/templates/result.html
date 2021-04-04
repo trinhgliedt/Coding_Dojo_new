@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style1.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <h3>Submitted Info:</h3>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td>{{ request.session.your_name }}</td>
+            </tr>
+            <tr>
+                <td>Dojo Location:</td>
+                <td>{{request.session.dojo_location}}</td>
+            </tr>
+            <tr>
+                <td>Favorite Language:</td>
+                <td>{{request.session.fav_language}}!!!</td>
+            </tr>
+            <tr id="comment">
+                <td class = "comment">Comment:</td>
+                <td class = "comment">{{request.session.comment}}</td>
+            </tr>
+        </table>
+        <form action="/">
+            <button>Go back</button>
+        </form>
+    </div>
+</body>
+</html>

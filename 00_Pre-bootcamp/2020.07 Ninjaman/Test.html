@@ -1,0 +1,43 @@
+<script>
+
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+var world1=[], world2=[], worldText = "[";
+var nRow = getRndInteger(12,22), nColumn = getRndInteger(12,22);
+document.write('nColumn: ',nColumn,', nRow: ',nRow,"<br>");
+
+for (var i=0; i < nRow; i++){
+	for (var j=0; j<nColumn; j++){
+		worldText = worldText + Math.floor(Math.random() * 4) + ',';
+	}
+	worldText = worldText + ']';
+	worldText = worldText + ',[';
+}
+worldText = worldText.substring(0,worldText.length - 2);
+//world.push(worldText);
+
+world1[0] =0;
+world1[1] =1;
+world1[2] =2;
+world2[0] =0;
+world2[1] =1;
+world2[2] =2;
+var world = [];
+world.push(world1,world2);
+
+//world.push([1,2,3],["a", "b", "c"]);
+document.write(worldText,"<br>","<br>");
+document.write('world: ',world,"<br>");
+document.write('world[0][1]: ',world[1][1],"<br>");
+
+
+//var test ="[2,0,2,1,1,1,0,3,3,0,1,0,]"
+//var array = test.split("",12);
+//document.write('array: ',array,"<br>");
+//document.write('array[1]: ',array[1],"<br>");
+//world.push(["a", "b", "c"]);
+
+//document.write(world,', world[0][1]: ',world[0][1]);
+</script>

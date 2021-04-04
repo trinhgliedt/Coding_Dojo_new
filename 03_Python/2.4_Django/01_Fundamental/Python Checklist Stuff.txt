@@ -1,0 +1,97 @@
+Steps for Creating a Django Project: Reminder to Self
+
+
+1. Activate Your Environment:   
+source ~/Desktop/CodingDojo/python_stack/my_environments/py3Env/Scripts/activate
+
+2. Go to the folder where you want to create the project
+cd python_stack/django/django_intro
+
+3. Creat your project
+django_intro> django-admin startproject <project_name> 
+
+4. This step maybe optional: To check whether the default project created actually works ok given the default settings.
+django_intro> cd  <project_name>
+project_name> python manage.py runserver
+
+on a browser go to localhost:8000
+Press Ctrl-C when you're happy it's working ok.
+
+
+5. Create an app inside your project, note that you're inside your project folder.
+project_name> python manage.py startapp <app-name>
+
+
+5. Open your project in vs code. You should see your project and your app inside vs.
+Type: code .  or do this: code <project-name>
+You can also do this inside VSC.
+
+
+6. Edit settings.py, add your <app-name> at the top or bottom of the INSTALLED_APPS list. Don't forget the comma and quotes. Make sure 
+it's not the <project-name> you put or else you gonna run into recursion fun.
+
+
+7.  Depending on your project - you may need to modify your urls.py, views.py, and some other files. They need to be coordinated.
+You may need to add new folders for templates (for passing dynamic data in your HTML) and static folders (for css, images) under your app folder.
+
+Example:
+Edit urls.py inside your project:
+from django.urls import path, include           # import include (it's a python module that does the function include)
+# from django.contrib import admin              # comment out, but when you do modeling and data entry you will use this
+urlpatterns = [
+    path('', include('your_app_name_here.urls')),	   
+    # path('admin/', admin.sites.urls)         # comment out, ... for later use
+]
+
+
+Add a new urls.py inside your app. Make sure you copy all the way to the closing bracket  "]".
+from django.urls import path     
+from . import views
+urlpatterns = [
+    path('', views.index),	   
+]
+
+
+In your app views, add this inside your views.py. In some other projects, this will look different.
+
+from django.shortcuts import render, HttpResponse
+def index(request):
+    return HttpResponse("this is the equivalent of @app.route('/')!")
+
+
+8. Save everything in vs. Ctrl K- S
+
+9. Acces a terminal in VSC.  Activate the python server inside VSC terminal.  Make sure that the Python environment with django installed on 
+it is activated. Note that you have to do this everytime you initiate a new terminal.
+
+This is where I installed py3Env with "activate command" on it.
+directory:  ~/Desktop/CodingDojo/python_stack/my_environments/py3Env/Scripts/
+
+Type: pip freeze or pip ls  in that py3Env to see if Django is there:  if not, do this to install django first:  
+pip install django==2.2.4
+
+To activate the Python environment with django on it (note where the Python activate program is):
+source ~/Desktop/CodingDojo/python_stack/my_environments/py3Env/Scripts/activate 
+
+
+10. Goto your project folder where manage.py is located. This manage.py file is created when you created your project.
+Then Run the Django server. It will run whatever ingredients you supplied in all the Django files.
+cd ~/Desktop/CodingDojo/python_stack/django/django_intro/project_one
+python manage.py runserver
+	
+
+
+11.  Test on your browser.
+On a browser, type: localhost or other GET request string on localhost.  You should get the expected response depending on the
+URL mappings and Views that are active and whatever info you supplied there.
+
+Example, on your browser type:
+localhost <enter>
+http://localhost:8000/blogs/some text here
+http://localhost:8000/blogs/create
+
+You might get into various kinds of errors e.g. HTTP 404 error, etc, depening on whether the the urls and views
+are set-up properly i.e. they are matching up, some ingredients missing, etc.
+
+ 
+

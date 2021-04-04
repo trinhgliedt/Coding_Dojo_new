@@ -1,0 +1,55 @@
+* {
+    /* outline: 1px solid grey; */
+}
+
+.projectHeader {
+    background: radial-gradient(rgba(118, 119, 82, 0.698), #4e4848fa);
+    border-radius: 20px;
+    padding: 10px 0;
+}
+
+.projectCard {
+    background: radial-gradient(rgba(175, 177, 105, 0.726), rgba(78, 72, 72, 0.883));
+    box-shadow: 20px 30px 15px 15px rgba(0,0,0,0.4);
+    z-index: 2;
+    border-radius: 40px;
+    
+}
+
+#projectWrap{
+    min-height: 2000px;
+}
+#project1 {
+    position: absolute;
+    left: 0%;
+    top: 9%;
+    z-index: 5;
+} 
+
+#project2 {
+    position: absolute;
+    left: 10%;
+    top: 9%;
+    z-index: 4;
+} 
+
+#project3 {
+    position: absolute;
+    left: 20%;
+    top: 9%;
+    z-index: 3;
+} 
+
+#project1:hover, #project2:hover, #project3:hover {
+    z-index: 5;
+    transform: translateY(-150px);
+    transition: all .4s ease-in-out;
+    background: radial-gradient(rgb(175, 177, 105), rgb(78, 72, 72));
+}
+#project3:hover ~ #project1 {
+    display: none;
+}
+
+#project3:hover ~ #project2 {
+    display: none;
+}

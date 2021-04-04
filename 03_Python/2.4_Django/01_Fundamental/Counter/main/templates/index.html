@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    {% load static %}
+    <link rel="stylesheet" href= "{% static 'style.css' %}">
+</head>
+<body>
+    <!-- Have the root route render a template that displays the number of times 
+        the client has visited this site. Refresh the page several times 
+        to ensure the counter is working. -->
+        <h2>Number of times this site was visited: {{ request.session.count }}</h2>
+        <form action="/destroy_session">
+            <button>Reset</button>
+        </form>
+        <form action="/plus2">
+            <button>+2</button>
+        </form>
+        
+</body>
+</html>

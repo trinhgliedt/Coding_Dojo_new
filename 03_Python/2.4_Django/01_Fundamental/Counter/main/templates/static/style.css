@@ -1,0 +1,6 @@
+* {
+    outline: 1px solid grey;
+}
+form, button {
+    margin: 30px;
+}

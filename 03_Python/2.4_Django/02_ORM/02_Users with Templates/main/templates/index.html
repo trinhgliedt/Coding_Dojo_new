@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users with Templates</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'users_style.css' %}">
+</head>
+<body>
+    <div id="container">
+        <table id = "allUsers"><h2>All the Users</h2>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.first_name}} {{user.last_name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.age}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <form action="/process-form" method=POST><h2>Add a User</h2>
+            {% csrf_token %}
+            <table id = "formInput">
+                <tr>
+                    <td><label for="first_name">First Name:</label></td>
+                    <td><input type="text" name="first_name" required></td>
+                    <td><label for="last_name">Last Name:</label></td>
+                    <td><input type="text" name="last_name" required></td>
+                </tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" name="email" required></td>
+                <td><label for="age">Age:</label></td>
+                <td><input type="number" min=0 name="age" required></td>
+            </table> 
+            <button>Add</button>           
+        </form>
+    </div>
+</body>
+</html>

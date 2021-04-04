@@ -1,0 +1,34 @@
+<script>
+      	//To generate an random array with number of rows/columns between 12 and 22. 
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+var world=[], originalWorld=[];
+var nRow = getRndInteger(12,22), nColumn = getRndInteger(12,22);
+document.write('nColumn: ',nColumn,', nRow: ',nRow,"<br>");
+
+for (var i=0; i < nRow; i++){
+	world[i] = [];
+	//originalWorld[i] = [];
+	for (var j=0; j<nColumn; j++){
+		world[i].push(Math.floor(Math.random() * 4));
+	//	originalWorld[i].push(Math.floor(Math.random() * 4));
+	}
+}
+
+originalWorld = world;
+//To set value of the first and last row of array to 1 (wall)
+for (var k=0; k<world[0].length; k++){
+	world[0][k] = 1; originalWorld[0][k] = 1;
+	world[world.length-1][k] = 1; originalWorld[originalWorld.length-1][k] = 1;
+}
+
+//To set value of the first and last column of array to 1 (wall)
+for (var m=0; m<world.length; m++){
+	world[m][0] = 1; originalWorld[m][0] = 1;	
+	world[m][world[0].length - 1] = 1; originalWorld[m][originalWorld[0].length - 1] = 1;
+}
+console.log('world: ', world);
+console.log('originalWorld: ', originalWorld);
+</script>

@@ -1,0 +1,11 @@
+*{
+    /* outline: 1px solid gray; */
+}
+img{
+    width: 100%;
+}
+#container{
+    width: 600px;
+    padding: 10px;
+    background-color: rgb(94, 211, 240);
+}

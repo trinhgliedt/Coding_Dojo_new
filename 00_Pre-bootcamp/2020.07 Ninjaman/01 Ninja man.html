@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>NinjaMan-OnCSS</title>
+        <style type="text/css">
+          * {
+            margin: 0;
+            padding: 0;
+          }
+          .wall {
+            background-color: blue;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+          }
+          .blank {
+            background-color: yellow;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+          }
+          .sushi {
+            background-color: yellow;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url('ninjaman/sushi.png');
+            background-size: contain;
+          }
+          #ninja {
+            background-color: yellow;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url('ninjaman/ninja.gif');
+            background-size: contain;
+            position: absolute;
+            left: 40px;
+            top: 40px;
+          }
+
+        </style>
+    </head>
+    <body>  
+      <div id='wolrd'>
+        <div class = 'row'>
+          <div class ='wall'></div>
+          <div class ='wall'></div>
+          <div class ='wall'></div>
+          <div class ='wall'></div>
+          <div class ='wall'></div>
+        </div>
+        <div class = 'row'>
+          <div class ='wall'></div>
+          <div class ='blank'></div>
+          <div class ='sushi'></div>
+          <div class ='sushi'></div>
+          <div class ='wall'></div>
+        </div>
+        <div class = 'row'>
+          <div class ='wall'></div>
+          <div class ='sushi'></div>
+          <div class ='wall'></div>
+          <div class ='sushi'></div>
+          <div class ='wall'></div>
+        </div>
+        <div class = 'row'>
+          <div class ='wall'></div>
+          <div class ='sushi'></div>
+          <div class ='sushi'></div>
+          <div class ='sushi'></div>
+          <div class ='wall'></div>
+        </div>
+        <div class = 'row'>
+          <div class ='wall'></div>
+          <div class ='wall'></div>
+          <div class ='wall'></div>
+          <div class ='wall'></div>
+          <div class ='wall'></div>
+        </div>
+      </div>
+      <div id='ninja'></div>
+      
+    </body>
+</html>

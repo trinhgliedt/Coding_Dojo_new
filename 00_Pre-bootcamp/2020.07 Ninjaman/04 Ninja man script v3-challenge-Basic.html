@@ -1,0 +1,175 @@
+<html>
+    <head>
+        <title>NinjaMan-OnScript</title>
+        <style type="text/css">
+          * {
+            margin: 0;
+            padding: 0;
+          }
+          .wall {
+            background-color: lightblue;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+          }
+          .blank {
+            background-color: yellow;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+          }
+          .sushi {
+            background-color: yellow;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url('ninjaman/sushi.png');
+            background-size: contain;
+           }
+            
+          .onigiri {
+            background-color: yellow;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url('ninjaman/onigiri.png');
+            background-size: contain;
+
+          }
+          #ninja {
+            background-color: yellow;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url('ninjaman/ninja.gif');
+            background-size: contain;
+            position: absolute;
+            left: 80px;
+            top: 40px;
+          }
+
+        </style>
+    </head>
+    <body>  
+      <div id='world'></div>
+      <div id='ninja'></div>
+
+  	</body>
+
+    <script type="text/javascript">
+      	var worldDict = {
+      		0:'blank', 
+      		1:'wall', 
+      		2:'sushi',
+      		3: 'onigiri'
+      	};
+      	var originalWorld = [
+          [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+
+          [1,3,0,2,1,3,1,2,1,2,2,3,2,1],
+
+          [1,2,1,3,1,2,1,2,1,1,2,1,1,1],
+          [1,2,3,2,1,3,2,3,2,2,3,2,3,1],
+          
+          [1,3,1,3,1,1,1,1,1,1,3,1,1,1],
+          [1,2,1,2,3,2,1,3,2,3,2,3,3,1],
+          
+          [1,3,1,1,1,2,1,1,1,1,2,1,1,1],
+          [1,2,1,3,2,2,3,2,2,3,2,3,2,1],
+          
+          [1,3,1,3,1,1,2,1,1,1,3,1,1,1],
+          [1,3,2,2,1,3,2,1,1,1,3,3,2,1],
+
+          [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+
+      	];
+        var world = [
+          [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+
+          [1,3,0,2,1,3,1,2,1,2,2,3,2,1],
+
+          [1,2,1,3,1,2,1,2,1,1,2,1,1,1],
+          [1,2,3,2,1,3,2,3,2,2,3,2,3,1],
+          
+          [1,3,1,3,1,1,1,1,1,1,3,1,1,1],
+          [1,2,1,2,3,2,1,3,2,3,2,3,3,1],
+          
+          [1,3,1,1,1,2,1,1,1,1,2,1,1,1],
+          [1,2,1,3,2,2,3,2,2,3,2,3,2,1],
+          
+          [1,3,1,3,1,1,2,1,1,1,3,1,1,1],
+          [1,3,2,2,1,3,2,1,1,1,3,3,2,1],
+
+          [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+
+
+      	];
+      	function drawWorld(){
+      		output = "";
+      		for (var row = 0; row < world.length; row++){
+      			output += "<div class = 'row'>";
+      			for (var x = 0; x < world[row].length; x++){
+      				output += "<div class = '" + worldDict[world[row][x]] +"'></div>";  			
+      			}
+      			output += "</div>";  			
+      		}
+      		document.getElementById('world').innerHTML = output;
+      	}
+      	drawWorld()
+    var ninja = {x: 2, y: 1}
+
+    function drawNinja(){
+      document.getElementById('ninja').style.left = ninja.x*40 +"px";
+      document.getElementById('ninja').style.top = ninja.y*40 + "px";
+    }
+    drawNinja()
+    document.onkeydown = function(e){
+    	console.log('e: ',e);
+      	console.log('e.keyCode: ',e.keyCode);
+      	console.log('ninja coordinate: ', ninja.y, ninja.x);
+
+      if (e.keyCode == 37) { //Left
+        if ((world[ninja.y][ninja.x - 1] != 1)){
+          ninja.x--;
+          document.getElementById("ninja").style.transform= "rotateY(180deg)";
+        }     
+      }
+      else if (e.keyCode == 39) { //right
+        if ((world[ninja.y][ninja.x + 1] != 1)){
+          ninja.x++;
+          document.getElementById("ninja").style.transform = "rotate(0deg)";
+        }
+      }
+      else if (e.keyCode == 40) { //down
+          if ((world[ninja.y + 1][ninja.x] != 1)){
+            ninja.y++;
+            document.getElementById("ninja").style.transform = "rotate(90deg)";
+        }
+      }
+      else if (e.keyCode == 38) { //up
+         if ((world[ninja.y - 1][ninja.x] != 1)){
+            ninja.y--;
+            document.getElementById("ninja").style.transform = "rotate(-90deg)";
+          }
+      }
+
+      world[ninja.y][ninja.x] = 0;
+
+      drawWorld();
+      drawNinja();
+
+  
+  var totalSushi = 0, remainingSushi = 0; totalOrigini = 0, remainingOrigini = 0;
+    	for (var row = 0; row < originalWorld.length; row++){
+      		for (var x = 0; x < originalWorld[row].length; x++){
+      			if (originalWorld[row][x] == 2) {totalSushi = totalSushi + 1;}
+      			if (originalWorld[row][x] == 3) {totalOrigini = totalOrigini + 1;}
+      			if (world[row][x] == 2) {remainingSushi = remainingSushi + 1;}
+      			if (world[row][x] == 3) {remainingOrigini = remainingOrigini + 1;}
+      		}			
+    	}
+   console.log('Number of sushi eaten: ', totalSushi - remainingSushi);
+   console.log('Number of origini eaten: ', totalOrigini - remainingOrigini);
+    }
+    </script>
+   </html>

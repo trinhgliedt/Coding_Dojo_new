@@ -1,0 +1,20 @@
+python manage.py makemigrations
+python manage.py migrate
+from main.models import User
+User.objects.create(first_name= "Max", last_name="Gliedt", email = "m@g.com", age = 3)
+User.objects.create(first_name= "Cassidy", last_name="Gliedt", email = "c@g.com", age = 1)
+User.objects.create(first_name= "Micah", last_name="Gliedt", email = "micah@g.com", age = 40)
+max = User.objects.get(id=1)
+max.save()
+cassidy = User.objects.get(id=2)
+cassidy.save()
+micah = User.objects.get(id=3)
+micah.save()
+User.objects.all()
+User.objects.first()
+User.objects.last()
+micah.last_name = "Pancakes"
+micah.save()
+cassidy.delete()
+User.objects.all().order_by("first_name")
+User.objects.all().order_by("-first_name")
