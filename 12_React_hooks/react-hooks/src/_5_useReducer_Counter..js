@@ -5,20 +5,23 @@ import React, { useState, useReducer } from "react";
 
 // create this object so that we don't have to keep typing increment and decrement repeatedly below
 const ACTIONS = {
-  ADD_TODO: "add_todo",
+  INCREMENT: "increment",
+  DECREMENT: "decrement",
 };
 
 // to define actions like this, we can ensure that state only changes in the ways we defined and not in some unexpected ways
-function reducer(todos, action) {
+function reducer(state, action) {
   switch (action.type) {
-    case ACTIONS.ADD_TODO:
-      return [...todos, newTodo(action.payload.name)];
+    // case "increment":
+    case ACTIONS.INCREMENT:
+      return { count: state.count + 1 };
+    // case "decrement":
+    case ACTIONS.DECREMENT:
+      return { count: state.count - 1 };
     default:
-      return todos;
+      // this is to throw some error handling. If not a valid action, if we're not incrementing or decrementing we'll just return the previous state
+      return state;
   }
-}
-function newTodo(name) {
-  return { id: Date.now(), name: name, complete: false };
 }
 
 function App() {
@@ -30,26 +33,30 @@ function App() {
 
   // the reducer function will take 2 different things: current state, and action. Action is what we passed into the dispatch function. Whatever we call dispatch with will be set to the action argument in the reducer function
 
-  const [todos, dispatch] = useReducer(reducer, []);
-  const [name, setName] = useState("");
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+  // Below are just examples for using useState
+  // const [count, setCount] = useState(0);
+  // function increment() {
+  //   setCount((prevCount) => prevCount + 1);
+  // }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    // payload is a common convention way of naming. Payload is basically all the variable values we're passing in with the action. Payload is an object
-    // instead of having a bunch of call back function on adding todos, deleting todos, we just have one single function to handle all this like below
-    dispatch({ type: ACTIONS.ADD_TODO, payload: { name: name } });
-    setName("");
+  // function decrement() {
+  //   setCount((prevCount) => prevCount - 1);
+  // }
+
+  function increment() {
+    dispatch({ type: ACTIONS.INCREMENT });
   }
-  console.log(todos);
+  function decrement() {
+    dispatch({ type: ACTIONS.INCREMENT });
+  }
+
   return (
     <div className="App" style={{ margin: "3rem" }}>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </form>
+      <button onClick={decrement}>-</button>
+      {/* <span>{count}</span> */}
+      <span>{state.count}</span>
+      <button onClick={increment}>+</button>
     </div>
   );
 }
